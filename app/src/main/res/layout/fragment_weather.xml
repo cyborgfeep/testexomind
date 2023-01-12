@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.WeatherFragment">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_medium"
+        android:text="ExoMind Weather"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_lmedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/btnRestart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        tools:listitem="@layout/weather_item" />
+
+    <TextView
+        android:id="@+id/txtProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/progressEnd"
+        android:textSize="@dimen/text_lmedium"
+        app:layout_constraintBottom_toTopOf="@+id/relatve_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relatve_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_xlarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="20dp"
+            app:progressView_borderColor="@color/white"
+            app:progressView_borderWidth="2dp"
+            app:progressView_colorBackground="@color/progressBg"
+            app:progressView_colorGradientEnd="@color/progressEnd"
+            app:progressView_colorGradientStart="@color/progressStart"
+            app:progressView_colorProgress="@color/progressEnd"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/progressEnd"
+            app:progressView_labelSize="14sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="0%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_progress="0"
+            app:progressView_progressFromPrevious="true"
+            app:progressView_radius="25dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnRestart"
+        style="@style/Widget.AppCompat.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_xlarge"
+        android:backgroundTint="@color/progressEnd"
+        android:text="Recommencer"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
